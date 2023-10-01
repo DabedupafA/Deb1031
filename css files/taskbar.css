@@ -1,0 +1,31 @@
+/* Reset default margin and padding for the entire page */
+body, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the taskbar */
+.taskbar {
+    background-color: #333;
+    color: #fff;
+    padding: 100px 0;
+}
+
+/* Style for taskbar list */
+.taskbar ul {
+    list-style: none;
+    text-align: center;
+}
+
+/* Style for taskbar list items */
+.taskbar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Style for taskbar links */
+.taskbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}

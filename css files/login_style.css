@@ -1,0 +1,39 @@
+/* Basic styling for the login container */
+.login-container {
+    width: 300px;
+    margin-left: 45%;
+    margin-top: 15%;
+    padding: 20px;
+    border: 20px solid #000000;
+    background-color: #f9f9f9;
+    text-align: center;
+
+}
+
+/* Style for the login form */
+.login-container form {
+    text-align: center;
+}
+
+/* Style for form labels */
+.login-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Style for form input fields */
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Style for the login button */
+.login-container input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
