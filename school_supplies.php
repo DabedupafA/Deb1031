@@ -7,79 +7,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point of Sale A</title>
     <!-- Latest compiled and minified CSS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css files/pos1_style.css">
+    <link rel="stylesheet" type="text/css" href="css files/design1.css">
     <style>
-         body {
-  background-image: url('photos/background_images/angas.webp');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
-}
-.container {
-  border: 5px solid #333; /* Border with color (#333) and width (2px) */
-  padding: 20px;
-  border-radius: 30px; /* Optional: Add border radius for rounded corners */
-  background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
-}
+        body {
+            background-image: url('photos/background_images/angas.webp');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
 
-        </style>
+        .container {
+            border: 5px solid #333;
+            /* Border with color (javascript:void(0);333) and width (2px) */
+            padding: 20px;
+            border-radius: 30px;
+            /* Optional: Add border radius for rounded corners */
+            background-color: rgba(255, 255, 255, 0.5);
+            /* 50% transparent white */
+            width: 100%;
+        }
+
+        .calculator {
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator input[type="text"] {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            padding: 5px;
+        }
+
+        .calculator button {
+            width: 70px;
+            height: 50px;
+            font-size: 18px;
+            margin: 5px;
+        }
+         /* Define CSS rules for the navbar */
+        .navbar {
+        background-color: #333;
+         overflow: hidden;
+         padding: 20px 0; /* Adjust top and bottom padding, leave no padding on the sides */
+         }
+
+            .navbar ul.navbar-nav {
+            list-style-type: none;
+        padding: 0;
+        }
+
+            .navbar ul.navbar-nav li {
+         margin: 0;
+              padding: 0;
+            }
+
+    .navbar ul.navbar-nav li a {
+    display: block;
+        color: white;
+            text-align: left;
+                padding: 14px 16px;
+                    text-decoration: none;
+            }
+
+        /* Define a hover rule to change the color when hovering */
+        .navbar ul.navbar-nav li a:hover {
+        background-color: #ddd;
+            color: #333;
+        }
+        .navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px; /* Adjust padding to resize the items */
+  
+}
+     /* CSS for selected text choices */
+     .selected {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: black;
+        }
+       /* CSS class for text choices */
+       .text-choice {
+            padding: 0px 20px;
+            color: #007bff; /* Default text color */
+            text-decoration: none;
+            font-family: 'Arial Black', sans-serif; /* Change 'YourFontName' to your preferred font */
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s; /* Smooth transition for text color */
+        }
+
+        /* Underline effect for text choices */
+        .text-choice::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            transition: background-color 0.3s; /* Smooth transition for underline color */
+        }
+
+        /* Function to add effect to the underline when hovering */
+        .text-choice:hover::before {
+            background-color: #ff5733; /* Underline color changes on hover */
+        }
+        .text-choice:hover{
+             color: #ff5733; /* Text color changes on hover */
+            text-decoration: none;
+        }
+        /* Change the text color when selected (clicked) */
+        .text-choice.selected {
+            color: black; /* Text color changes when selected */
+        }
+        .custom-font-color {
+            color: black; /* Change this to the color you want */
+        }
+        /* CSS for the dropdown container */
+        .dropdown {
+        display: inline-block;
+        }
+    </style>
 </head>
-
 <body>
-    <div class="d-flex">
-        <div class="vh-100 sticky-top" style="width: 300px;">
-            <section>
-                <nav class="navbar">
-                    <ul>
-                        <li>
+<div class="d-flex">
+    <div class="vh-100 sticky-top" style="width: 300px;">
+        <section>
+            <nav class="navbar">
+                <ul class="navbar-nav mr-auto mt-20 mt-lg-20">
+                    <li>
                         <a href="firstpage.php">
-                                <p>Home
-                            </a></li>
-                        </p>
-                        </li>
-                        <li><a href="employee_registration_save.php">
-                                <p>Employee Registration
-                            </a></li>
-                        </p>
-                        <li><a href="payroll.php">
-                                <p>Payroll
-                            </a></li>
-                        </p>
-                        <li><a href="">
-                                <p>Payroll Report
-                            </a></li>
-                        </p>
-                        <li><a href="school_supplies.php">
-                                <p>POS
-                            </a></li>
-                        </p>
-                        <li><a href="">
-                                <p>POS SALES Report
-                            </a></li>
-                        </p>
-                        <li><a href="user.php">
-                                <p>User Account
-                            </a></li>
-                        </p>
-                        <li><a href="login.php">
-                                <p>Logout
-                            </a></li>
-                        </p>
-                    </ul>
-                </nav>
-            </section>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employee_registration_save.php">
+                            Employee Registration
+                        </a>
+                    </li>
+                    <li>
+                        <a href="payroll.php">
+                            Payroll
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            Payroll Report
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bread.php">
+                            POS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            POS SALES Report
+                        </a>
+                    </li>
+                    <li>
+                        <a href="user.php">
+                            User Account
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.php">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </div>
 
-        </div>
-        <div class="container flex-grow-1">
-            <div class="dropdown">
-                <button class="dropbtn" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+
+        <div class="container">
+        <div class="dropdown">
+                <button class="dropbtn" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
                     Products
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -89,150 +211,168 @@
                     <a class="dropdown-item" href="bread.php">Bread</a>
                     <a class="dropdown-item" href="school_supplies.php">School Supplies</a>
                 </div>
-            </div>
-
-            <h1 class="text-center" style="padding-top:10px; padding-bottom:10px; font-weight:bold; margin-top:40px;">SCHOOL SUPPLIES SECTION</h1>
-            <div class="pic_group">
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/3-ring-binder.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox1" name="checkbox1"class ="checkbox-group">
-                    <label for="checkbox1" value="">Binder</label>
+        </div>
+            <h1 class="text-center" style="padding-bottom:20px; font-weight:bold;">SCHOOL SUPPLIES SECTOR</h1>
+            <div class="pic_group" style="padding-bottom:10px;">
+                <div class="choice-container"style="padding-bottom:20px; margin-top: 50px;">
+                     <div class="pic_option">
+                     <div><img src="photos/car logos_images/acura.jpg" alt="Acura"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color"onclick="updateInputBoxes('Acura', 'Acura', '500000.00');toggleSelection(this); ">Acura - <strong>P500k</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/astonmartin.jpg" alt="astonmartin"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color"onclick="updateInputBoxes('astonmartin', 'astonmartin', '600000');toggleSelection(this); ">A|martin - <strong>P600k</strong></a>
+                    </div>  
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/audi.jpg" alt="Audi"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Audi', 'Audi', '400000');toggleSelection(this); ">Audi - <strong>P400k</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/bmw.png" alt="BMW"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('BMW', 'BMW', '550000');toggleSelection(this); ">BMW - <strong>P550k</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/bugatti.jpg" alt="Bugatti"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Bugatti', 'Bugatti', '2000000');toggleSelection(this); ">Bugatti - <strong>P2M</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/cadillac.jpg" alt="Cadillac"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Cadillac', 'Cadillac', '1500000');toggleSelection(this); ">Cadillac - <strong>P1.5M</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/dacia.jpg" alt="Dacia"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Dacia', 'Dacia', '700000');toggleSelection(this); ">Dacia - <strong>P700k</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/ferrari.jpg" alt="Ferarri"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Ferarri', 'Ferarri', '1800000');toggleSelection(this); ">Ferarri - <strong>P1.8M</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/holden.jpg" alt="Holden"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes(' Holden', ' Holden', '600000');toggleSelection(this); ">Holden - <strong>P600k</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/infiniti.jpg" alt="Infiniti"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Infiniti', 'Infiniti', '550000');toggleSelection(this); ">Infiniti - <strong>P550k</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/jaguar.jpg" alt="Jaguar"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Jaguar', 'Jaguar', '700000');toggleSelection(this); ">Jaguar - <strong>P700k</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/kia.png" alt="KIA"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('KIA', 'KIA', '400000');toggleSelection(this); ">KIA - <strong>P400k</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/koenigsegg.png" alt="Koenigsegg"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Koenigsegg', 'Koenigsegg', '1100000');toggleSelection(this);">Koenigsegg-<strong>1.1M</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/lamborghini.jpg" alt="Lamborghini"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes(' Lamborghini', ' Lamborghini', '2000000.00');toggleSelection(this); ">Lamborghini-<strong>P2M</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/maserati.png" alt="Maserati"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Maserati', 'Maserati', '450000');toggleSelection(this); ">Maserati- <strong>P450k</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/mclaren.png" alt="Mclaren"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Mclaren', 'Mclaren', '1300000');toggleSelection(this); ">Mclaren - <strong>P1.3M</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/porsche.jpg" alt="Porsche"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Porsche', 'Porsche', '1600000');toggleSelection(this); ">Porsche - <strong>P1.6M</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/rollsroyce.jpg" alt="Rollsroyce"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Rollsroyce', 'Rollsroyce', '2000000');toggleSelection(this); ">Rollsroyce - <strong>P2M</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/seat.png" alt="Seat"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Seat', 'Seat', '1000000');toggleSelection(this); ">Seat - <strong>P1M</strong></a>
+                    </div>
+                    <div class="pic_option">
+                    <div><img src="photos/car logos_images/volkswagen.jpg" alt="Volkswagen"></div>
+                    <a href="javascript:void(0);" class="text-choice custom-font-color" onclick="updateInputBoxes('Volkswagen', 'Volkswagen', '1000000');toggleSelection(this); ">Volkswagen-<strong>P1M</strong></a>
+                    </div>
                 </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/academic-calendar.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox2" name="checkbox2"class ="checkbox-group">
-                    <label for="checkbox2" value="">Academic Calendar</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/backpack.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox3" name="checkbox3"class ="checkbox-group">
-                    <label for="checkbox3" value="">Backpack</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/dry-erase-markers.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox4" name="checkbox4"class ="checkbox-group">
-                    <label for="checkbox4" value="">Erase Marker</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/Hole-puncher.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox5" name="checkbox5"class ="checkbox-group">
-                    <label for="checkbox5" value="">Puncher</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/notebooks.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox6" name="checkbox6"class ="checkbox-group">
-                    <label for="checkbox6">Notebooks</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/notecards.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox7" name="checkbox7"class ="checkbox-group">
-                    <label for="checkbox7">Notecards</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/paper-clips.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox8" name="checkbox8"class ="checkbox-group">
-                    <label for="checkbox8">Paper Clips</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/pencil.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox9" name="checkbox9"class ="checkbox-group">
-                    <label for="checkbox9">Pencil</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/pencil-case.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox10" name="checkbox10"class ="checkbox-group">
-                    <label for="checkbox10">Pencil Case</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/pens.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox11" name="checkbox11"class ="checkbox-group">
-                    <label for="checkbox11">Pens</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/pocket-folders.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox12" name="checkbox12"class ="checkbox-group">
-                    <label for="checkbox12">Pocket Folders</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/printer.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox13" name="checkbox13"class ="checkbox-group">
-                    <label for="checkbox13">Printer</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/recycled-post-its.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox14" name="checkbox14"class ="checkbox-group">
-                    <label for="checkbox14">Post Its</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/scientific-calculator.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox15" name="checkbox15"class ="checkbox-group">
-                    <label for="checkbox15">Scientific Calculator</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/scissors.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox16" name="checkbox16"class ="checkbox-group">
-                    <label for="checkbox16">Scissors</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/sharpie.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox17" name="checkbox17"class ="checkbox-group">
-                    <label for="checkbox17">Sharpie</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/stapler.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox18" name="checkbox18"class ="checkbox-group">
-                    <label for="checkbox18">Stapler</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/sticky Tack.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox19" name="checkbox19"class ="checkbox-group">
-                    <label for="checkbox19">Sticky Tack</label>
-                </div>
-                <div class="pic_option">
-                    <div><img src="photos/supplies_images/whiteout.jpg" alt="Cinque Terre"></div>
-                    <input type="checkbox" id="checkbox20" name="checkbox20"class ="checkbox-group">
-                    <label for="checkbox20">Whiteout</label>
-                </div>
+            </div> 
                 <div style="width:100%; text-align:left;">
                     <div style="width:40%; float:left;">
-                        <div style="width:100%; text-align:left; padding-left:50px;">
+                        <div style="width:100%; text-align:left; padding-left:30px; margin-right: 30px;">
                             <h5 class="text-left" style="padding-top:10px; font-weight:bold;"> Food Order Choices:</h5>
                             <div class="bundle_checkbox">
                                 <label>Discount Options:</label>
                                 <div>
                                     <label>
-                                        <input type="radio" name="discount_option" value="senior_citizen" onchange="updateDiscountAmount()"> Senior Citizen
+                                        <input type="radio" name="discount_option" value="senior_citizen"  onchange="disableRadioButtons();updateDiscountAmount();"> Senior Citizen
                                     </label>
                                 </div>
                                 <div>
                                     <label>
-                                        <input type="radio" name="discount_option" value="with_disc_card"onchange="updateDiscountAmount()"> With Discount Card
+                                        <input type="radio" name="discount_option" value="with_disc_card"  onchange="disableRadioButtons();updateDiscountAmount();"> With Discount Card
                                     </label>
                                 </div>
                                 <div>
                                     <label>
-                                        <input type="radio" name="discount_option" value="employee_discount"onchange="updateDiscountAmount()"> Employee Discount
+                                        <input type="radio" name="discount_option" value="employee_discount"  onchange="disableRadioButtons();updateDiscountAmount();"> Employee Discount
                                     </label>
                                 </div>
                                 <div>
                                     <label>
-                                        <input type="radio" name="discount_option" value="no_discount" checked onchange="updateDiscountAmount()"> No Discount
+                                        <input type="radio" name="discount_option" value="no_discount"   onchange="disableRadioButtons();updateDiscountAmount();"> No Discount
                                     </label>
                                 </div>
                             </div>
+                            <div class="my-6    ">
+                                <div class="row row-cols-4" style = "margin-right: 5px;" >
+                                    <div class="p-2 col">
+                                        <button type="button" class="btn btn-primary w-100 " style="white-space:nowrap" onclick="updateTotalPrice()"> Change</button>
+                                    </div>
+                                    <div class="p-2 col">
+                                        <button type="button" class="btn btn-danger w-100 " onclick="resetinputs() ">New</button>
+                                    </div>
+                                    <div class="p-2 col">
+                                        <button type="button" class="btn btn-warning w-100">Save</button>
+                                    </div>
+                                    <div class="p-2 col">
+                                        <button type="button" class="btn btn-dark w-100">Update</button>
+                                    </div>
+                                </div>
+                            <div class="calculator" style = "margin-right: 21px;" >
+                                <button class="btn btn-dark" onclick="addToCalculator('7')">7</button>
+                                <button class="btn btn-dark" onclick="addToCalculator('8')">8</button>
+                                <button class="btn btn-dark" onclick="addToCalculator('9')">9</button>
+                                <button class="btn btn-dark" onclick="addToCalculator('+')">+</button>
+                                <br>
+                                <button class="btn btn-dark" onclick="addToCalculator('4')">4</button>
+                                <button class="btn btn-dark" onclick="addToCalculator('5')">5</button>
+                                <button class="btn btn-dark" onclick="addToCalculator('6')">6</button>
+                                <button class="btn btn-dark" onclick="addToCalculator('-')">-</button>
+                                <br>
+                                <button class="btn btn-dark" onclick="addToCalculator('1')">1</button>
+                                <button class="btn btn-dark" onclick="addToCalculator('2')">2</button>
+                                <button class="btn btn-dark" onclick="addToCalculator('3')">3</button>
+                                <button class="btn btn-dark" onclick="addToCalculator('*')">*</button>
+                                <br>
+                                <button class="btn btn-dark" onclick="addToCalculator('0')">0</button>
+                                <button class="btn btn-dark" onclick="clearDisplay()">C</button>
+                                <button class="btn btn-dark" onclick="calculateResult()">=</button>
+                                <button class="btn btn-dark" onclick="addToCalculator('/')">/</button>
+                            </div>
                         </div>
-                        
                     </div>
-                <div class = "row">
-                    <div class="col-md-6">
+                </div>
+                <div class="row">
+                    <div class="col-md-6" >
                         <!-- Left Column: Order Details -->
                         <div class="form-group">
                             <label for="item_name">Name of Item:</label>
-                            <input type="text" class="form-control" id="item_name"  readonly>
+                            <input type="text" class="form-control" id="item_name" readonly>
                         </div>
                         <div class="form-group">
                             <label for="quantity">Quantity:</label>
-                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="quantity" min="1" onchange="updateTotalPrice()">
+                            <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="quantity" min="1" onchange="updateTotalPrice()" disabled>
                         </div>
                         <div class="form-group">
                             <label for="price">Price:</label>
@@ -240,14 +380,14 @@
                         </div>
                         <div class="form-group">
                             <label for="discount">Discount Amount:</label>
-                            <input type="text" class="form-control" id="discount"readonly>
+                            <input type="text" class="form-control" id="discount" readonly>
                         </div>
                         <div class="form-group">
                             <label for="discounted_amount">Discounted Amount:</label>
                             <input type="text" class="form-control" id="discounted_amount" readonly>
                         </div>
-                         </div>
-                        <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="total_price">Total Price:</label>
                             <input type="text" class="form-control" id="total_price" readonly>
@@ -266,187 +406,214 @@
                         </div>
                         <div class="form-group">
                             <label for="change">Change:</label>
-                            <input type="text" class="form-control" disable id="change"  readonly>
+                            <input type="text" class="form-control" disable id="change" readonly>
                         </div>
                     </div>
-            <div class="" id="process_button" style="margin-top:43px;">
-            <button type="button" id="calculateButton"onclick="updateTotalPrice()" name="Update" class="btn btn-primary btn_process">Change </button>
-        </div>
-        </div>
-
-    </div>
-    </div>
-    <script>
-        // Get all checkboxes with the class "checkbox-group"
-        var checkboxes = document.querySelectorAll('.checkbox-group');
-
-            // Add an event listener to each checkbox
-            checkboxes.forEach(function(checkbox) {
-             checkbox.addEventListener('change', function() {
-            // Uncheck all other checkboxes in the group
-                checkboxes.forEach(function(otherCheckbox) {
-                if (otherCheckbox !== checkbox) {
-                otherCheckbox.checked = false;
-                  }
-              });
-            });
-        });
-        // Function to update input boxes when a checkbox is checked
-        function updateInputBoxes(checkboxId, itemName, itemPrice) {
-            var checkbox = document.getElementById(checkboxId);
-            var itemNameInput = document.getElementById('item_name');
-            var itemPriceInput = document.getElementById('item_price');
-
-            if (checkbox.checked) {
-                itemNameInput.value = itemName;
-                itemPriceInput.value = itemPrice;
-            } else {
-                itemNameInput.value = '';
-                itemPriceInput.value = '';
-            }
+                    
+                </div>
+                <script>
+                     // Function to disable radio buttons after selection
+                    function disableRadioButtons() {
+                        var radioButtons = document.querySelectorAll('input[type="radio"]');
+                        radioButtons.forEach(function (radio) {
+                            radio.disabled = true;
+                        });
         }
-function updateDiscountAmount() {
-    var discountOption = document.querySelector('input[name="discount_option"]:checked').value;
-    var discountInput = document.getElementById('discount');
+                    const enableDisableRadios = document.querySelectorAll('input[name="discount_option"]');
+                    const text1 = document.getElementById('quantity');
 
-    if (discountOption === "no_discount") {
-        discountInput.value = ''; // Clear the input when no discount is selected
-        discountInput.disabled = true;
-    } else if (discountOption === "senior_citizen" || discountOption === "with_disc_card") {
-        discountInput.value = '20%'; // Set the input value to '20%'
-        discountInput.disabled = true;
-    } else if (discountOption === "employee_discount") {
-        discountInput.value = '30%'; // Set the input value to '30%'
-        discountInput.disabled = true;
-    } else {
-        discountInput.value = ''; // Clear the input when no specific discount is selected
-        discountInput.disabled = false;
-    }
-}
-function updateTotalPrice() {
-    // Get the quantity and price per item
-    var quantity = parseFloat(document.getElementById('quantity').value);
-    var pricePerItem = parseFloat(document.getElementById('item_price').value);
-    var cashgiven= parseFloat(document.getElementById('cash_given').value);   
+                    enableDisableRadios.forEach(function(radio) {
+                        radio.addEventListener('change', function() {
+                            if (radio.value === 'senior_citizen') {
+                                text1.removeAttribute('disabled');
 
-    // Calculate the total price
-    var totalPrice = quantity * pricePerItem;
+                            }
+                            if (radio.value === 'with_disc_card') {
+                                text1.removeAttribute('disabled');
 
-    // Get the selected discount option
-    var discountOption = document.querySelector('input[name="discount_option"]:checked').value;
-    var discountAmount = 0;
+                            }
+                            if (radio.value === 'employee_discount') {
+                                text1.removeAttribute('disabled');
 
-    // Calculate the discount amount based on the selected option
-    if (discountOption === "senior_citizen" || discountOption === "with_disc_card") {
-        discountAmount = 0.2 * pricePerItem; // 20% discount
-    } else if (discountOption === "employee_discount") {
-        discountAmount = 0.3 * pricePerItem; // 30% discount
-    }
+                            }
+                            if (radio.value === 'no_discount') {
+                                text1.removeAttribute('disabled');
 
-    // Calculate the discounted price per item
-    var discountedPricePerItem = pricePerItem - discountAmount;
-    var totalpriceDiscount= totalPrice-(discountAmount*quantity);
+                            }
+                        });
+                    });
+                    function resetinputs() {
+                        // Store the initial state and associated functions for radio buttons
+                        const initialRadioStates = {
+                            "senior_citizen": false,
+                            "with_disc_card": false,
+                            "employee_discount": false,
+                            "no_discount": false
+                        };
+                        const text1 = document.getElementById('quantity');
+                        
 
-    // Calculate the total discounted price
-    var totalDiscountedPrice = quantity * discountedPricePerItem;
+                        // Reset input fields
+                        document.getElementById("item_name").value = '';
+                        document.getElementById("item_price").value = '';
+                        document.getElementById("discount").value = '';
+                        document.getElementById("discounted_amount").value = '';
+                        document.getElementById("total_price").value = '';
+                        document.getElementById("total_discount_given").value = '';
+                        document.getElementById("total_discounted_amount").value = '';
+                        document.getElementById("cash_given").value = '';
+                        document.getElementById("change").value = '';
+                        document.getElementById("quantity").value = '';
+                        var textChoices = document.querySelectorAll('.text-choice');
+            
+                            // Deselect all choices
+                            textChoices.forEach(function (textChoice) {
+                                textChoice.classList.remove('selected');
+                            });
+                            
+                            
+                        // Reset radio buttons and associated functions
+                        var radioButtons = document.querySelectorAll('input[type="radio"][name="discount_option"]');
+                        for (let radioButton of radioButtons) {
+                            const value = radioButton.value;
+                            radioButton.checked = initialRadioStates[value]; // Reset selected state
+                            radioButtons.forEach(function (radio) {
+                            radio.disabled = false;
+                            radio.checked = false; // Uncheck the selected radio
+                        });
+                            document.getElementById("quantity").disabled = !initialRadioStates[value];
+                            
+                        }
+                        
+                        
+                    }
+                    
+                    // Function to update input boxes when a checkbox is checked
+                     // Function to update input boxes when a text choice is clicked
+                        function updateInputBoxes(choiceId, itemName, itemPrice) {
+                            var textChoice = document.getElementById(choiceId);
+                            var itemNameInput = document.getElementById('item_name');
+                            var itemPriceInput = document.getElementById('item_price');
 
-    // Update the "Total Price" input field with the calculated value
-    document.getElementById('total_price').value = totalPrice.toFixed(2); // Display the result with two decimal places
+                            itemNameInput.value = itemName;
+                            itemPriceInput.value = itemPrice;
+                        }
+                        // Function to select one choice and deselect others
+                        function toggleSelection(choice) {
+                            // Get all text choices
+                            var textChoices = document.querySelectorAll('.text-choice');
+                            var selectedChoice = document.querySelector('.text-choice.selected');
+                            if (selectedChoice) {
+                                window.scroll({
+                                top: document.body.scrollHeight,
+                                behavior: 'smooth'
+                            });
+                            }
+                            
+                            // Deselect all choices
+                            textChoices.forEach(function (textChoice) {
+                                textChoice.classList.remove('selected');
+                            });
 
-    // Update the "Discounted Amount per Item" input field with the calculated value
-    document.getElementById('discounted_amount').value = (discountAmount).toFixed(2);
+                            // Select the clicked choice
+                            choice.classList.add('selected');
+                        }
 
-    //Update the "Total Discounted Amount" input field with the calculated value
-    document.getElementById('total_discount_given').value=(discountAmount*quantity).toFixed(2);
-     //Update the "Total Price With Discount" input field with the calculated value
-     document.getElementById('total_discounted_amount').value = (totalpriceDiscount).toFixed(2);
-    //Update the "Change" input field with the calculated value
-    document.getElementById('change').value=(cashgiven-totalpriceDiscount).toFixed(2)
+                        // Function to execute updateInputBoxes
+                        function functionToUpdateInputBoxes(itemName, itemPrice) {
+                            updateInputBoxes(itemName, itemPrice);
+                        }
+                                        
 
-}
-    function calculateChange() {
-    // Get the total price with discount
-    var total_discounted_amount = parseFloat(document.getElementById('total_discounted_amount').value);
+                    function addToCalculator(number) {
+                        const cashGivenInput = document.getElementById("cash_given");
+                        cashGivenInput.value += number;
+                    }
 
-    // Get the cash given by the customer
-    var cashgiven = parseFloat(document.getElementById('cash_given').value);
+                    function updateDiscountAmount() {
+                        var discountOption = document.querySelector('input[name="discount_option"]:checked').value;
+                        var discountInput = document.getElementById('discount');
 
-    // Calculate the change
-    var change = cashgiven - total_discounted_amount;
+                        if (discountOption === "no_discount") {
+                            discountInput.value = ''; // Clear the input when no discount is selected
+                            discountInput.disabled = true;
+                        } else if (discountOption === "senior_citizen" || discountOption === "with_disc_card") {
+                            discountInput.value = '20%'; // Set the input value to '20%'
+                            discountInput.disabled = true;
+                        } else if (discountOption === "employee_discount") {
+                            discountInput.value = '30%'; // Set the input value to '30%'
+                            discountInput.disabled = true;
+                        } else {
+                            discountInput.value = ''; // Clear the input when no specific discount is selected
+                            discountInput.disabled = false;
+                        }
+                    }
 
-    // Display the change in the "Change" input field
-    document.getElementById('change').value = change.toFixed(2);
-}
+                    function updateTotalPrice() {
+                        // Get the quantity and price per item
+                        var quantity = parseFloat(document.getElementById('quantity').value);
+                        var pricePerItem = parseFloat(document.getElementById('item_price').value);
+                        var cashgiven = parseFloat(document.getElementById('cash_given').value);
 
+                        // Calculate the total price
+                        var totalPrice = quantity * pricePerItem;
 
-        // Add event listeners to each checkbox
-        document.getElementById('checkbox1').addEventListener('change', function() {
-            updateInputBoxes('checkbox1', 'Binder', '20');
-        });
-        document.getElementById('checkbox2').addEventListener('change', function() {
-            updateInputBoxes('checkbox2', 'Academic Calendar', '140');
-        });
-        document.getElementById('checkbox3').addEventListener('change', function() {
-            updateInputBoxes('checkbox3', 'Backpack', '5000');
-        });
-        document.getElementById('checkbox4').addEventListener('change', function() {
-            updateInputBoxes('checkbox4', 'Erase Marker', '25');
-        });
-        document.getElementById('checkbox5').addEventListener('change', function() {
-            updateInputBoxes('checkbox5', 'Puncher', '120');
-        });
-        document.getElementById('checkbox6').addEventListener('change', function() {
-            updateInputBoxes('checkbox6', 'Notebook', '35');
-        });
-        document.getElementById('checkbox7').addEventListener('change', function() {
-            updateInputBoxes('checkbox7', 'Notecards', '55');
-        });
-        document.getElementById('checkbox8').addEventListener('change', function() {
-            updateInputBoxes('checkbox8', 'Paper Clips', '15');
-        });
-        document.getElementById('checkbox9').addEventListener('change', function() {
-            updateInputBoxes('checkbox9', 'Pencil', '10');
-        });
-        document.getElementById('checkbox10').addEventListener('change', function() {
-            updateInputBoxes('checkbox10', 'Pencil Case', '100');
-        });
-        document.getElementById('checkbox11').addEventListener('change', function() {
-            updateInputBoxes('checkbox11', 'Pens', '20');
-        });
-        document.getElementById('checkbox12').addEventListener('change', function() {
-            updateInputBoxes('checkbox12', 'Pocket Folders', '35');
-        });
-        document.getElementById('checkbox13').addEventListener('change', function() {
-            updateInputBoxes('checkbox13', 'Printer', '10000');
-        });
-        document.getElementById('checkbox14').addEventListener('change', function() {
-            updateInputBoxes('checkbox14', 'Post Its', '35');
-        });
-        document.getElementById('checkbox15').addEventListener('change', function() {
-            updateInputBoxes('checkbox15', 'Scientific Calculator', '1000');
-        });
-        document.getElementById('checkbox16').addEventListener('change', function() {
-            updateInputBoxes('checkbox16', 'Scissors', '50');
-        });
-        document.getElementById('checkbox17').addEventListener('change', function() {
-            updateInputBoxes('checkbox17', 'Sharpie', '80');
-        });
-        document.getElementById('checkbox18').addEventListener('change', function() {
-            updateInputBoxes('checkbox18', 'Stapler', '25');
-        });
-        document.getElementById('checkbox19').addEventListener('change', function() {
-            updateInputBoxes('checkbox19', ' Sticky Tack', '35');
-        });
-        document.getElementById('checkbox20').addEventListener('change', function() {
-            updateInputBoxes('checkbox20', 'Whiteout', '40');
-        });
-        // Add event listeners for other checkboxes in a similar manner
+                        // Get the selected discount option
+                        var discountOption = document.querySelector('input[name="discount_option"]:checked').value;
+                        var discountAmount = 0;
 
-     $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-    });
-    updateDiscountAmount();
-    </script>
-</body>
+                        // Calculate the discount amount based on the selected option
+                        if (discountOption === "senior_citizen" || discountOption === "with_disc_card") {
+                            discountAmount = 0.2 * pricePerItem; // 20% discount
+                        } else if (discountOption === "employee_discount") {
+                            discountAmount = 0.3 * pricePerItem; // 30% discount
+                        }
 
-</html>
+                        // Calculate the discounted price per item
+                        var discountedPricePerItem = pricePerItem - discountAmount;
+                        var totalpriceDiscount = totalPrice - (discountAmount * quantity);
+
+                        // Calculate the total discounted price
+                        var totalDiscountedPrice = quantity * discountedPricePerItem;
+
+                        // Update the "Total Price" input field with the calculated value
+                        document.getElementById('total_price').value = totalPrice.toFixed(2); // Display the result with two decimal places
+
+                        // Update the "Discounted Amount per Item" input field with the calculated value
+                        document.getElementById('discounted_amount').value = (discountAmount).toFixed(2);
+
+                        //Update the "Total Discounted Amount" input field with the calculated value
+                        document.getElementById('total_discount_given').value = (discountAmount * quantity).toFixed(2);
+                        //Update the "Total Price With Discount" input field with the calculated value
+                        document.getElementById('total_discounted_amount').value = (totalpriceDiscount).toFixed(2);
+                        //Update the "Change" input field with the calculated value
+                        document.getElementById('change').value = (cashgiven - totalpriceDiscount).toFixed(2)
+
+                    }
+
+                    function calculateChange() {
+                        // Get the total price with discount
+                        var total_discounted_amount = parseFloat(document.getElementById('total_discounted_amount').value);
+
+                        // Get the cash given by the customer
+                        var cashgiven = parseFloat(document.getElementById('cash_given').value);
+
+                        // Calculate the change
+                        var change = cashgiven - total_discounted_amount;
+
+                        // Display the change in the "Change" input field
+                        document.getElementById('change').value = change.toFixed(2);
+                    }
+
+                    function clearDisplay() {
+                        document.getElementById('cash_given').value = '';
+                    }
+                    // Add event listeners for other checkboxes in a similar manner
+
+                    $(document).ready(function() {
+                        $('[data-toggle="tooltip"]').tooltip();
+                    });
+                    updateDiscountAmount();
+                </script>
+ </body>
+ </html>

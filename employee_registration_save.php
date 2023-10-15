@@ -24,56 +24,97 @@
   background-attachment: fixed;
   background-size: 100% 100%;
 }
+  /* Define CSS rules for the navbar */
+  .navbar {
+    background-color: #333;
+    overflow: hidden;
+  }
+
+  .navbar ul.navbar-nav {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .navbar ul.navbar-nav li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar ul.navbar-nav li a {
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  /* Define a hover rule to change the color when hovering */
+  .navbar ul.navbar-nav li a:hover {
+    background-color: #ddd;
+    color: #333;
+  } 
+  /* Style for the links */
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px; /* Adjust padding to resize the items */
+  
+}
+  
         </style>
 </head>
 
 <body>
 <div class="d-flex">
-        <div class="vh-100 sticky-top" style="width: 300px;">
-
-            <section>
-                <nav class="navbar">
-                    <ul>
-                        <li>
-                                <a href="firstpage.php">
-                                <p>Home
-                                 </a></li>
-                        </p>
-                        </li>
-                        <li><a href="employee_registration_save.php">
-                                <p>Employee Registration
-                            </a></li>
-                        </p>
-                        <li><a href="payroll.php">
-                                <p>Payroll
-                            </a></li>
-                        </p>
-                        <li><a href="">
-                                <p>Payroll Report
-                            </a></li>
-                        </p>
-                        <li><a href="bread.php">
-                                <p>POS
-                            </a></li>
-                        </p>
-                        <li><a href="">
-                                <p>POS SALES Report
-                            </a></li>
-                        </p>
-                        <li><a href="user.php">
-                                <p>User Account
-                            </a></li>
-                        </p>
-                        <li><a href="login.php">
-                                <p>Logout
-                            </a></li>
-                        </p>
-                    </ul>
-                </nav>
-            </section>
-
-        </div>
-
+    <div class="vh-100 sticky-top" style="width: 300px;">
+        <section>
+            <nav class="navbar">
+                <ul class="navbar-nav mr-auto mt-20 mt-lg-20">
+                    <li>
+                        <a href="firstpage.php">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="employee_registration_save.php">
+                            Employee Registration
+                        </a>
+                    </li>
+                    <li>
+                        <a href="payroll.php">
+                            Payroll
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Payroll Report
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bread.php">
+                            POS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            POS SALES Report
+                        </a>
+                    </li>
+                    <li>
+                        <a href="user.php">
+                            User Account
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.php">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </div>
     <div class="container">
         <div class="page_border">
             
@@ -81,7 +122,7 @@
                 <h1 style="text-align:center; margin-bottom:30px; font-size:47px;font-family:Algerian; color: black"><b>DevC Incorporated Personal Info</b></h1>
                 <div class="a-form-group mt-3" style="float:left; clear:block;width:20%;" >
                     <div id="pic-box" style='width:170px; height:150px;overflow:hidden; margin-top:7px; margin-left:5px; background:none; border:thin solid #d3d3d3'>
-                    <img src="image.jpg" class="card-img-top" alt="...">
+                    <img src="image.jpg" class="card-img-top " style = "border:solid #000000" alt="...">
                 </div>
                     <input type="file" style="margin-top:10px; text-align:center;" id="uploadfile" name="uploadfile" value="" />
                 </div>  
@@ -93,39 +134,39 @@
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="fname" class="mb-0 controllabel">First Name</label>
-                                <input type="text" class="form-control mt-0" name="fname" id="fname" value="">
+                                <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="fname" id="fname" value="">
                             </div>
                             <div class="form-group col-3">
                                 <label for="mname" class="mb-0">Middle
                                     Name</label>
-                                <input type="text" class="form-control mt-0" name="mname" id="mname">
+                                <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="mname" id="mname">
                             </div>
                             <div class="form-group col">
                                 <label for="lname" class="mb-0 controllabel">Last Name</label>
-                                <input type="text" class="form-control mt-0" name="lname" id="lname" value="">
+                                <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="lname" id="lname" value="">
                             </div>
                             <div class="form-group col-2">
                                 <label for="suffix" class="mb-0">Suffix</label>
-                                <input type="text" class="form-control mt-0" name="suffix" id="suffix">
+                                <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="suffix" id="suffix">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-4">
                                 <label for="bday" class="mb-0 control-label">Date of
                                     Birth</label>
-                                <input type="date" class="form-control mt-0" name="birth_date" id="birth_date">
+                                <input type="date" class="form-control mt-0" style = "border:thin solid #000000" name="birth_date" id="birth_date">
                             </div>
                             <div class="form-group col-3">
                                 <label for="gender" class="mb-0 controllabel">Gender</label>
-                                <select class="form-control" name="gender" id="gender">
+                                <select class="form-control" name="gender"  style = "border:thin solid #000000" id="gender">
                                     <option value=''>-- select one --</option>
                                     <option value="M">Male</option>
                                     <option value="F">Female</option>
                                 </select>
                             </div>
                             <div class="form-group col">
-                                <label for="nationality" class="mb-0 controllabel">Nationality</label>
-                                <select class="form-control mt-0" name="nationality" id="nationality">
+                                <label for="nationality" class="mb-0 controllabel" >Nationality</label>
+                                <select class="form-control mt-0" name="nationality" style = "border:thin solid #000000" id="nationality">
                                     <option value="">-- select one --</option>
                                     <option value="Afghan">Afghan</option>
                                     <option value="Albanian">Albanian</option>
@@ -338,7 +379,7 @@
                             </div>
                             <div class="form-group col-3">
                                 <label for="civil_status" class="mb-0 controllabel">Civil Status</label>
-                                <select class="form-control" name="civil_status" id="civil_status">
+                                <select class="form-control" name="civil_status" style = "border:thin solid #000000" id="civil_status">
                                     <option value=''>-- select one --</option>
                                     <option value="M">Married</option>
                                     <option value="S">Single</option>
@@ -352,15 +393,15 @@
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="fname" class="mb-0 controllabel">Department</label>
-                                <input type="text" class="form-control mt-0" name="department" id="department" value="">
+                                <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="department" id="department" value="">
                             </div>
                             <div class="form-group col-3">
                                 <label for="mname" class="mb-0">Designation</label>
-                                <input type="text" class="form-control mt-0" name="designation" id="designation">
+                                <input type="text" class="form-control mt-0"  style = "border:thin solid #000000" name="designation" id="designation">
                             </div>
                             <div class="form-group col-3">
                                 <label for="qualified_dependent_status" class="mb-0 control-label">Qualified Dep. Status</label>
-                                <select class="form-control" name="qualified_dependent_status" id="qualified_dependent_status">
+                                <select class="form-control" style = "border:thin solid #000000" name="qualified_dependent_status" id="qualified_dependent_status">
                                     <option value=''>-- select one --</option>
                                     <option value="Z">Z or Single</option>
                                     <option value="S or ME">S or ME</option>
@@ -375,16 +416,16 @@
                             <div class="form-group col">
                                 <label for="fname" class="mb-0 control-label">Employee
                                     Status</label>
-                                <input type="text" class="form-control mt-0" name="employee_status" id="employee_status" value="">
+                                <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="employee_status" id="employee_status" value="">
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-4">
                                     <label for="pay_day" class="mb-0 controllabel">Paydate</label>
-                                    <input type="date" class="form-control mt-0" name="pay_date" id="pay_date">
+                                    <input type="date" class="form-control mt-0" style = "border:thin solid #000000" name="pay_date" id="pay_date">
                                 </div>
                                 <div class="form-group col">
                                     <label for="employee_number" class="mb-0 controllabel">Employee Number</label>
-                                    <input type="text" class="form-control mt-0" name="employee_number" id="employee_number" value="">
+                                    <input type="text" class="form-control mt-0"  style = "border:thin solid #000000" name="employee_number" id="employee_number" value="">
                                 </div>
                             </div>
                         </div>
@@ -395,17 +436,17 @@
                             <div class="form-row">
                                 <div class="form-group col-5">
                                     <label for="contact_number" class="mb-0 controllabel">Contact No.</label>
-                                    <input type="text" class="form-control mt-0" name="contact_number" id="contact_number" value="">
+                                    <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="contact_number" id="contact_number" value="">
                                 </div>
                                 <div class="form-group col">
                                     <label for="email" class="mb-0 controllabel">Email</label>
-                                    <input type="text" class="form-control mt-0" name="email_address" id="email_address" value="">
+                                    <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="email_address" id="email_address" value="">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-5">
                                     <label for="social_media" class="mb-0 controllabel">Other (Social Media)</label>
-                                    <select class="form-control" name="social_media" id="social_media">
+                                    <select class="form-control" style = "border:thin solid #000000" name="social_media" id="social_media">
                                         <option value=''>-- select one --</option>
                                         <option value="facebook_messenger">Facebook
                                             Messenger</option>
@@ -419,7 +460,7 @@
                                 </div>
                                 <div class="form-group col">
                                     <label for="social_media_account_id" class="mb-0 controllabel">Social Media Account ID/No.</label>
-                                    <input type="text" class="form-control mt-0" name="social_media_account_id" id="social_media_account_id">
+                                    <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="social_media_account_id" id="social_media_account_id">
                                 </div>
                             </div>
                         </div>
@@ -430,29 +471,29 @@
                             <div class="form-row">
                                 <div class="form-group col-12">
                                     <label for="address1" class="mb-0">Address Line 1</label>
-                                    <input type="text" class="form-control mt-0" name="address_line1" id="address_line1">
+                                    <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="address_line1" id="address_line1">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-10">
                                     <label for="address2" class="mb-0">Address Line 2</label>
-                                    <input type="text" class="form-control mt-0" name="address_line2" id="address_line2">
+                                    <input type="text" class="form-control mt-0"style = "border:thin solid #000000" name="address_line2" id="address_line2">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col">
                                     <label for="city" class="mb-0">City/Municipality</label>
-                                    <input type="text" class="form-control mt-0" name="municipality" id="municipality">
+                                    <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="municipality" id="municipality">
                                 </div>
                                 <div class="form-group col">
                                     <label for="state" class="mb-0">State/Province</label>
-                                    <input type="text" class="form-control mt-0" name="state_province" id="state_province">
+                                    <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="state_province" id="state_province">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-6">
                                     <label for="country" class="mb-0">Country</label>
-                                    <select class="form-control mt-0" name="country" id="country">
+                                    <select class="form-control mt-0" style = "border:thin solid #000000" name="country" id="country">
                                         <option value=''>-- select one --</option>
                                         <option value="Afganistan">Afghanistan</option>
                                         <option value="Albania">Albania</option>
@@ -742,12 +783,12 @@
                                 </div>
                                 <div class="form-group col3">
                                     <label for="zip" class="mb-0">Zip Code</label>
-                                    <input type="text" class="form-control mt-0" name="zip_code" id="zip_code">
+                                    <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="zip_code" id="zip_code">
                                 </div>
                             </div>
                             <div class="form-group col3">
                                 <label for="picpath" class="mb-0">Picture Path</label>
-                                <input type="text" class="form-control mt-0" name="picpath" id="picpath" value="">
+                                <input type="text" class="form-control mt-0" style = "border:thin solid #000000" name="picpath" id="picpath" value="">
                             </div>
                         </div>
                     </div>
