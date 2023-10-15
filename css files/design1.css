@@ -5,7 +5,6 @@
   flex-direction: column;
   min-height: 100vh;
 }
-
 /* Style for the list items */
 .navbar ul {
   list-style: none;
@@ -18,13 +17,6 @@
   margin-right: 20px; /* Adjust spacing between items */
 }
 
-/* Style for the links */
-.navbar a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  font-size: 18px; /* Adjust padding to resize the items */
-}
 
 /* Change the width of the navbar */
 .navbar {

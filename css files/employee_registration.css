@@ -61,9 +61,6 @@ input[type="password"] {
   margin-top: 20px;
 }
 
-body {
-font-family: Arial, Helvetica, sans-serif;
-}
 /* Style the content */
 article {
 -webkit-flex: 3;
@@ -139,4 +136,5 @@ flex-direction: row;
   /* New border properties */
   border: 5px solid #333; /* Border with color (#333) and width (2px) */
   border-radius: 30px; /* Optional: Add border radius for rounded corners */
+  font-family: Arial, Helvetica, sans-serif;
 }
